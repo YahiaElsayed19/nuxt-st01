@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../store/auth-ctx';
 import classes from "./Login.module.css";
 import UsersList from './UsersList';
-import Input from "../components/Input";
+import Input from "./Input";
 import Button from './Button';
 
 function Login() {
