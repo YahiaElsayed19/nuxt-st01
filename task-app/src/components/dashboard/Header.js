@@ -1,15 +1,27 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom"
 import { AuthContext } from '../../store/auth-ctx'
+import classes from './Header.module.css'
 const Header = () => {
     const authCtx = useContext(AuthContext)
     const image = authCtx.selectedAccount.avatar
-    const username = authCtx.selectedAccount.username
+    const name = authCtx.selectedAccount.name
+    const navigate = useNavigate()
+    const onLogoutHandler = () => {
+        authCtx.logout()
+        navigate("/", { replace: true })
+    }
     return (
-        <header>
-            <div>
-                <img src={image}/>
+        <header className={classes.header}>
+            <div className={classes.container}>
+                <div className={classes.info}>
+                    <div className={classes['image-wrapper']}>
+                        <img src={image} alt="avatar" className={classes.image} />
+                    </div>
+                    <p className={classes.name}>{name}</p>
+                </div>
+                <button className={classes['logout-btn']} onClick={onLogoutHandler}>LOGOUT</button>
             </div>
-            <p>{username}{}{}{}{}</p>
         </header>
     );
 };
