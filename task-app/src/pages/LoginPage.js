@@ -1,8 +1,8 @@
-import UsersList from "../components/UsersList"
+import Login from "../components/Login"
 
 function LoginPage() {
     return (
-        <UsersList />
+        <Login />
     )
 }
 
