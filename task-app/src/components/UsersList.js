@@ -9,7 +9,7 @@ function UsersList() {
     return (
         <ul className={classes["users-list"]}>
             {usersList?.map((user) => (
-                <UserItem key={user.id} name={user.username} avatar={user.avatar} />
+                <UserItem key={user.id} name={user.name} username={user.username} avatar={user.avatar} />
             ))}
         </ul>
     );

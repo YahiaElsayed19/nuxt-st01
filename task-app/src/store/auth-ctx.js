@@ -12,11 +12,12 @@ export const AuthContext = createContext({
 function AuthProvider({ children }) {
     const [selectedAccount, setSelectedAccount] = useState({})
     const [enterdPassword, setEnterdPassword] = useState("")
-    const setSelectedAccountFn = (username, password,avatar) => {
+    const setSelectedAccountFn = (username, password, avatar, name) => {
         setSelectedAccount({
             username: username,
             password: password,
-            avatar:avatar,
+            avatar: avatar,
+            name: name,
         })
     }
     const setEnterdPasswordFn = (password) => {

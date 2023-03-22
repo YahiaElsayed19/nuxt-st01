@@ -1,28 +1,28 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../store/auth-ctx";
 import classes from "./UserItem.module.css";
-function UserItem({ avatar, name }) {
+function UserItem({ avatar, username ,name}) {
     const authCtx = useContext(AuthContext)
     const onSelectHandler = () => {
         let password = ""
-        if (name === "zucker") {
+        if (username === "zucker") {
             password = "123456"
         }
-        if (name === "felon") {
+        if (username === "felon") {
             password = "123123"
         }
-        if (name === "robon") {
+        if (username === "robon") {
             password = "secret"
         }
-        authCtx.setSelectedAccount(name, password,avatar)
+        authCtx.setSelectedAccount(username, password,avatar,name)
     }
-    let userItemClasses = `${classes["user-item"]} ${name === authCtx.selectedAccount.username && classes.active}`
+    let userItemClasses = `${classes["user-item"]} ${username === authCtx.selectedAccount.username && classes.active}`
     return (
         <li className={userItemClasses} onClick={onSelectHandler}>
             <div className={classes["img-wrapper"]}>
                 <img src={avatar} alt="avatar" />
             </div>
-            <p>@{name}</p>
+            <p>@{username}</p>
         </li>
     );
 }
