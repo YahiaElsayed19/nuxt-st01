@@ -5,7 +5,6 @@ import UserItem from "./UserItem";
 import classes from "./UsersList.module.css";
 function UsersList() {
     const { data } = useQuery("UsersList", () => getUsersList());
-    console.log(data?.data);
     const usersList = data?.data;
     return (
         <ul className={classes["users-list"]}>

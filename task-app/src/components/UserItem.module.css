@@ -28,3 +28,12 @@
     font-size: 24px;
     color: #2196f3;
 }
+.user-item.active{
+    background-color: #2196f3;
+}
+.user-item.active .img-wrapper{
+    border-color: #f6f6f6;
+}
+.user-item.active p{
+color: #f6f6f6;
+}
