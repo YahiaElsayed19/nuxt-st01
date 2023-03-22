@@ -1,14 +1,14 @@
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./components/Login";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const queryClient = new QueryClient();
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Login />,
+      element: <LoginPage />,
     },
   ]);
   return (

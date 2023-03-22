@@ -1,0 +1,30 @@
+.user-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    background-color: #f6f6f6;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.img-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #2196f3;
+    margin-right: 16px;
+    overflow: hidden;
+}
+
+.user-item img {
+    width: 60px;
+    height: 60px;
+
+}
+
+.user-item p {
+    font-weight: bold;
+    font-size: 24px;
+    color: #2196f3;
+}

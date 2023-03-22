@@ -1,8 +1,12 @@
 import React from 'react'
+import classes from './UserItem.module.css'
 
-function UserItem() {
+function UserItem({ avatar, name }) {
     return (
-        <div>UserItem</div>
+        <li className={classes['user-item']}>
+            <div className={classes['img-wrapper']}> <img src={avatar} alt="avatar" /></div>
+            <p>{name}</p>
+        </li>
     )
 }
 
