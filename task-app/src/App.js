@@ -11,6 +11,10 @@ function App() {
       path: "/",
       element: <LoginPage />,
     },
+    {
+      path: "/home",
+      element: <div>New Page</div>
+    }
   ]);
   return (
     <AuthProvider>

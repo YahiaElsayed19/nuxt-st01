@@ -12,3 +12,6 @@
 .login-btn:hover{
     background-color: #1d81d3;
 }
+.err-msg{
+    color: red;
+}
