@@ -1,37 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import { useEffect } from 'react'
-import axios from 'axios'
+import "./App.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from "./components/Login";
+
 function App() {
-  useEffect(() => {
-    async function name() {
-      let response = await axios.get("http://localhost:4000/todos", {
-        auth: {
-          username: 'zucker',
-          password: '123456'
-        }
-      })
-      console.log(response);
-    }
-    name()
-  }, [])
+  const queryClient = new QueryClient();
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login />,
+    },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   );
 }
 
