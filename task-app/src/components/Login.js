@@ -3,6 +3,7 @@ import { AuthContext } from '../store/auth-ctx';
 import classes from "./Login.module.css";
 import UsersList from './UsersList';
 import Input from "../components/Input";
+import Button from './Button';
 
 function Login() {
     const authCtx = useContext(AuthContext)
@@ -11,7 +12,7 @@ function Login() {
             <div className={classes.container}>
                 <h1>Choose an account.</h1>
                 <UsersList />
-                {authCtx.isSelected && <Input />}
+                {authCtx.isSelected && <><Input /> <Button /></>}
             </div>
         </div>
     )
