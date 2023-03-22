@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import AuthProvider from "./store/auth-ctx";
+import DashboardPage from "./pages/DashboardPage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -13,7 +14,7 @@ function App() {
     },
     {
       path: "/home",
-      element: <div>New Page</div>
+      element: <DashboardPage />
     }
   ]);
   return (
