@@ -14,7 +14,7 @@ function UserItem({ avatar, name }) {
         if (name === "robon") {
             password = "secret"
         }
-        authCtx.setSelectedAccount(name, password)
+        authCtx.setSelectedAccount(name, password,avatar)
     }
     let userItemClasses = `${classes["user-item"]} ${name === authCtx.selectedAccount.username && classes.active}`
     return (
