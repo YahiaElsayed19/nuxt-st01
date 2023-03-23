@@ -19,7 +19,7 @@ function TodoList() {
         <div className={classes.todos}>
             <div className={classes.container}>
                 <ul className={classes.list}>
-                    {todos?.map(todo => <TodoItem key={todo.id} task={todo.task} completed={todo.completed} />)}
+                    {todos?.map(todo => <TodoItem key={todo.id} id={todo.id} task={todo.task} completed={todo.completed} />)}
                 </ul>
                 {add && <AddTask />}
                 <button className={classes['add-btn']} onClick={addHandler}>{add ? "Cancel" : "Add"}</button>
