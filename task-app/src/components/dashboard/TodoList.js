@@ -4,14 +4,15 @@ import { AuthContext } from "../../store/auth-ctx";
 import { getTodosList } from "../../util/todos";
 import AddTask from "./AddTask";
 import TodoItem from "./TodoItem";
-import { toggleTodo,deleteTodo } from "../../util/todos";
+import { toggleTodo, deleteTodo } from "../../util/todos";
 import classes from "./TodoList.module.css";
+import { InfinitySpin } from 'react-loader-spinner'
 function TodoList() {
     const [add, setAdd] = useState(false);
     const authCtx = useContext(AuthContext);
     const username = authCtx.selectedAccount.username;
     const password = authCtx.selectedAccount.password;
-    const { data, refetch } = useQuery("GetTodos", () =>
+    const { data, refetch, isRefetching } = useQuery("GetTodos", () =>
         getTodosList(username, password)
     );
     const todos = data?.data;
@@ -37,7 +38,10 @@ function TodoList() {
     return (
         <div className={classes.todos}>
             <div className={classes.container}>
-                <ul className={classes.list}>
+                {isRefetching ? <InfinitySpin
+                    width='200'
+                    color="#2196f3"
+                /> : <ul className={classes.list}>
                     {todos?.map((todo) => (
                         <TodoItem
                             key={todo.id}
@@ -48,7 +52,7 @@ function TodoList() {
                             onDeleteHandler={deleteHandler}
                         />
                     ))}
-                </ul>
+                </ul>}
                 {add && <AddTask />}
                 <button className={classes["add-btn"]} onClick={addHandler}>
                     {add ? "Cancel" : "Add"}
