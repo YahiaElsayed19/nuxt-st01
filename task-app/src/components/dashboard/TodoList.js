@@ -47,10 +47,7 @@ function TodoList() {
     return (
         <div className={classes.todos}>
             <div className={classes.container}>
-                {isRefetching ? <InfinitySpin
-                    width='200'
-                    color="#2196f3"
-                /> : <ul className={classes.list}>
+                {todos?.length===0?<p>There is no tasks start add some! </p> :<ul className={classes.list}>
                     {todos?.map((todo) => (
                         <TodoItem
                             key={todo.id}
