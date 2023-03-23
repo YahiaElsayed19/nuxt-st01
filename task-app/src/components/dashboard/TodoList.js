@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../store/auth-ctx";
-import { getTodosList } from "../../util/todos";
+import { addTask, getTodosList } from "../../util/todos";
 import AddTask from "./AddTask";
 import TodoItem from "./TodoItem";
 import { toggleTodo, deleteTodo } from "../../util/todos";
@@ -35,6 +35,15 @@ function TodoList() {
         );
         refetch();
     };
+    const addTaskHandler = async (task) => {
+        setAdd(false)
+        await addTask(
+            authCtx.selectedAccount.username,
+            authCtx.selectedAccount.password,
+            task
+        );
+        refetch();
+    };
     return (
         <div className={classes.todos}>
             <div className={classes.container}>
@@ -53,7 +62,7 @@ function TodoList() {
                         />
                     ))}
                 </ul>}
-                {add && <AddTask />}
+                {add && <AddTask onAddTask={addTaskHandler} />}
                 <button className={classes["add-btn"]} onClick={addHandler}>
                     {add ? "Cancel" : "Add"}
                 </button>

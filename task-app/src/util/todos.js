@@ -11,7 +11,7 @@ export const getTodosList = function (username, password) {
 };
 
 export const toggleTodo = function (username, password, id) {
-    const response = axios.put(`${baseUrl}/${id}`,{}, {
+    const response = axios.put(`${baseUrl}/${id}`, {}, {
         auth: {
             username: username,
             password: password
@@ -21,6 +21,15 @@ export const toggleTodo = function (username, password, id) {
 };
 export const deleteTodo = function (username, password, id) {
     const response = axios.delete(`${baseUrl}/${id}`, {
+        auth: {
+            username: username,
+            password: password
+        }
+    });
+    return response;
+};
+export const addTask = function (username, password, task) {
+    const response = axios.post(baseUrl, { task: task }, {
         auth: {
             username: username,
             password: password
