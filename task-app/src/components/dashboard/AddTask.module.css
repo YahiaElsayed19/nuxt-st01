@@ -1,0 +1,24 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    margin-top: 12px;
+    padding: 10px;
+}
+input:focus{
+    outline: none;
+}
+
+button {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    background-color: #2196f3;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}

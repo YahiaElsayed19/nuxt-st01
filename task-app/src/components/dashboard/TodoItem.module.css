@@ -1,0 +1,23 @@
+.task {
+    background-color: #f6f6f6;
+    padding: 18px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task.completed {
+    background-color: #2196f3;
+    text-decoration: line-through;
+}
+
+.action {
+    padding: 8px;
+    margin: 4px;
+    background-color: #2196f3;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
