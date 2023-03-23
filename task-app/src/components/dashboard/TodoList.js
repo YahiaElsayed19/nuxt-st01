@@ -19,16 +19,16 @@ function TodoList() {
     const addHandler = () => {
         setAdd((prev) => !prev);
     };
-    const completeHandler = (id) => {
-        toggleTodo(
+    const completeHandler = async (id) => {
+        await toggleTodo(
             authCtx.selectedAccount.username,
             authCtx.selectedAccount.password,
             id
         );
         refetch();
     };
-    const deleteHandler = (id) => {
-        deleteTodo(
+    const deleteHandler = async (id) => {
+        await deleteTodo(
             authCtx.selectedAccount.username,
             authCtx.selectedAccount.password,
             id
