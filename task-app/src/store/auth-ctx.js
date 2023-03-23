@@ -6,6 +6,8 @@ export const AuthContext = createContext({
     enterdPassword: "",
     setEnterdPassword: () => { },
     logout: () => { },
+    loggedIn: null,
+    setLoggedIn: () => { }
 
 })
 
@@ -13,6 +15,7 @@ export const AuthContext = createContext({
 function AuthProvider({ children }) {
     const [selectedAccount, setSelectedAccount] = useState({})
     const [enterdPassword, setEnterdPassword] = useState("")
+    const [loggedIn, setLoggedIn] = useState(false)
     const setSelectedAccountFn = (username, password, avatar, name) => {
         setSelectedAccount({
             username: username,
@@ -27,6 +30,10 @@ function AuthProvider({ children }) {
     const logoutFn = () => {
         setSelectedAccount({})
         setEnterdPassword("")
+        setLoggedIn(false)
+    }
+    const setLoggedInFn = () => {
+        setLoggedIn(true)
     }
     const value = {
         selectedAccount: selectedAccount,
@@ -35,6 +42,8 @@ function AuthProvider({ children }) {
         enterdPassword: enterdPassword,
         setEnterdPassword: setEnterdPasswordFn,
         logout: logoutFn,
+        loggedIn: loggedIn,
+        setLoggedIn: setLoggedInFn
     }
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

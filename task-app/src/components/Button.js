@@ -8,7 +8,8 @@ function Button() {
     const navigate = useNavigate();
     const onLoginHandler = () => {
         if (authCtx.enterdPassword === authCtx.selectedAccount.password) {
-            navigate("/home",{replace:true});
+            navigate("/home", { replace: true });
+            authCtx.setLoggedIn()
         } else {
             setError(true);
         }
